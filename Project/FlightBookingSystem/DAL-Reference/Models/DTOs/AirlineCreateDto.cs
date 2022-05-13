@@ -19,6 +19,6 @@ namespace FlightBookingAPI.Models.DTOs
         [Required(ErrorMessage = "Logo is required")]
         public string Logo { get; set; }
 
-        public long? UserID { get; set; }
+        public string UserID { get; set; }
     }
 }

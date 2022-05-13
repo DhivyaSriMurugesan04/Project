@@ -1,5 +1,6 @@
 ﻿using DAL_Reference.Interfaces;
 using DAL_Reference.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,18 +8,18 @@ using System.Text;
 
 namespace DAL_Reference.Repository
 {
-    public class FlightsRepository : RepositoryBase<TblFlight>, IFlightsRepository
+    public class FlightsRepo : RepositoryBase<TblFlight>, IFlightsRepository
     {
         FlightBookingApplicationDBContext _repository;
 
-        public FlightsRepository(FlightBookingApplicationDBContext repositoryContext)
+        public FlightsRepo(FlightBookingApplicationDBContext repositoryContext)
             : base(repositoryContext)
         {
             _repository = repositoryContext;
         }
         public IEnumerable<TblFlight> GetAllFlights()
         {
-           return _repository.TblFlights.Where(u => u.AirlineId > 0)
+           return _repository.TblFlights.Where(u => !string.IsNullOrWhiteSpace(u.AirlineId))
             .Include(u => u.Airline)
             .OrderBy(o => o.FlightId).ToList();
         }

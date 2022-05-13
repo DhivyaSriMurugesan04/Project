@@ -16,7 +16,7 @@ namespace DAL_Reference.Interfaces
         IEnumerable<TblBooking> GetAllBookingsByUserId(string UserID);
         TblBooking GetBookingByIdWithPassenger(string ID);
         IEnumerable<TblBooking> GetBookingHistoryAllByUserId(string UserID);
-        IEnumerable<TblBooking> GetAllBookingsByPNRIdAndUserId(long Pnrid, long UserId);        
+        IEnumerable<TblBooking> GetAllBookingsByPNRIdAndUserId(string Pnrid, string UserId);        
         TblBooking GetAllBookingsByPNRIdAndUserIdAndTripDate(string Pnrid, string UserId, DateTime tripDate);
         IEnumerable<TblBooking> GetBookingHistoryAllByAirlineIdAndFlightId(string airlineId, string flightId, DateTime tripDate);
     }

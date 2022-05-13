@@ -5,10 +5,10 @@ using System.Text;
 
 namespace DAL_Reference.Interfaces
 {
-    public interface IUsersMasterRepository : IRepositoryBase<TblUser>
+    public interface IUserRepository : IRepositoryBase<TblUser>
     {
         IEnumerable<TblUser> GetAllUsers();
-        TblUser GetUserById(int UserId);
+        TblUser GetUserById(string UserId);
 
         TblUser GetUserByEmailAndPwd(string email, string pwd);
         void CreateUser(TblUser usersMaster);

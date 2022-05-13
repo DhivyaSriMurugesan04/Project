@@ -8,11 +8,11 @@ namespace DAL_Reference.Interfaces
     public interface IPassengerRepository : IRepositoryBase<TblPassenger>
     {
         IEnumerable<TblPassenger> GetAllPassengerDetails();
-        IEnumerable<TblPassenger> GetAllPassengerByUserId(long UserID);
-        IEnumerable<TblPassenger> GetAllPassengerByPNRID(long PNRID);
-        IEnumerable<TblPassenger> GetAllPassengerByPNRIDAndUserID(long PNRID, long UserID);
+        IEnumerable<TblPassenger> GetAllPassengerByUserId(string UserID);
+        IEnumerable<TblPassenger> GetAllPassengerByPNRID(string PNRID);
+        IEnumerable<TblPassenger> GetAllPassengerByPNRIDAndUserID(string PNRID, string UserID);
 
-        TblPassenger GetPassengerById(long ID);
+        TblPassenger GetPassengerById(string ID);
         void CreatePassenger(TblPassenger passenger);
         void UpdatePassenger(TblPassenger passenger);
         void DeletePassenger(TblPassenger passenger);

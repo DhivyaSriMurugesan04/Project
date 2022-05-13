@@ -14,7 +14,7 @@ namespace DAL_Reference.Models.DTOs
         [Required(ErrorMessage = "Status is required")]
         public string Status { get; set; }
         [Required(ErrorMessage = "User Id is required")]
-        public long UserID { get; set; }
+        public string UserID { get; set; }
 
     }
 }

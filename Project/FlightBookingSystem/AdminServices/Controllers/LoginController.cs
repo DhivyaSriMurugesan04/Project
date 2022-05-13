@@ -1,8 +1,12 @@
-﻿using DAL_Reference.Interfaces;
+﻿using AutoMapper;
+using DAL_Reference.Interfaces;
 using DAL_Reference.Models;
+using FlightBookingAPI.Models.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,46 +15,54 @@ using System.Threading.Tasks;
 namespace AdminServices.Controllers
 {
     [Authorize]
-    [Route("api/v1.0/flight/admin/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/{v:apiVersion}/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
     {
         private readonly IJWTManagerRepository iJWTManager;
         private readonly FlightBookingApplicationDBContext _dbContext;
-        public LoginController(IJWTManagerRepository jWTManager, FlightBookingApplicationDBContext dbContext)
+        private IRepositoryWrapper _repository;
+        private IMapper _mapper;        
+        private readonly ILoggerManager _logger;
+             
+
+        public LoginController(IJWTManagerRepository jWTManager, FlightBookingApplicationDBContext dbContext , IRepositoryWrapper repository, IMapper mapper, ILoggerManager logger)
         {
             iJWTManager = jWTManager;
             _dbContext = dbContext;
-        }
-
-        [HttpPost]
-        [Route("Login")]
-        public IActionResult Login(TblUser user)
-        {
-            IEnumerable<TblUser> tblusr = _dbContext.TblUsers.Where(x => x.UserId == user.UserId && x.PassWord == user.PassWord);
-            if (tblusr.ToList().Count == 0)
-            {
-                return Unauthorized();
-            }
-            return new OkObjectResult(tblusr);
+            _repository = repository;
+            _mapper = mapper;            
+            _logger = logger;
         }
 
         [AllowAnonymous]
-        [HttpPost]
-        [Route("authenticate")]
-        public IActionResult Authenticate(string email, string password)
+        [HttpPost, Route("login")]
+        public IActionResult Login([FromBody] UserCredentials user)
         {
-            IEnumerable<TblUser> tblusr = _dbContext.TblUsers.Where(x => x.EmailId == email && x.PassWord == password);
-            if (tblusr.ToList().Count == 0)
+            try
             {
-                return Unauthorized();
+                var userEntity = _repository.TblUser.GetUserByEmailAndPwd(user.Email, user.Password);
+                if (userEntity == null)
+                {
+                    return NotFound();
+                }
+                var token = iJWTManager.Authentication(user.Email, user.Password);
+                if (token == null)
+                    return Unauthorized();
+                var userDetail = _mapper.Map<UserDto>(userEntity);
+
+                var result = JsonConvert.SerializeObject(new { token, userDetail });
+               // _logger.LogDebug("Login Success.");
+                return Ok(result);
             }
-            var token = iJWTManager.Authentication(email, password);
-            if (token == null)
+            catch (Exception ex)
             {
-                return Unauthorized();
+                _logger.LogError("Internal Server Error." + ex);
+                return StatusCode(500, ex.Message);
             }
-            return Ok(token);
         }
     }
+
+        
 }

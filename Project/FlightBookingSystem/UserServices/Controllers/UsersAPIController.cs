@@ -1,4 +1,7 @@
-﻿using DAL_Reference.Models;
+﻿using AutoMapper;
+using DAL_Reference.Interfaces;
+using DAL_Reference.Models;
+using FlightBookingAPI.Models.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,61 +21,126 @@ namespace UserServices.Controllers
     public class UsersAPIController : ControllerBase
     {
         FlightBookingApplicationDBContext _flightApplicationDBContext;
-        public UsersAPIController(FlightBookingApplicationDBContext flightApplicationDBContext)
+        private IRepositoryWrapper _repository;
+        private IMapper _mapper;       
+        private readonly ILoggerManager _logger;
+
+        public UsersAPIController(FlightBookingApplicationDBContext flightApplicationDBContext , IRepositoryWrapper repository, IMapper mapper, ILoggerManager logger)
         {
             _flightApplicationDBContext = flightApplicationDBContext;
+            _repository = repository;
+            _mapper = mapper;           
+            _logger = logger;
 
-            
+
         }
 
         [HttpGet]
-        [Route("GetUserDetails")]
-        public IEnumerable<TblUser> GetUserDetails()
+        public IActionResult GetAllUsers()
         {
-            return _flightApplicationDBContext.TblUsers.ToList();
+            try
+            {
+                var users = _repository.TblUser.GetAllUsers();
+                var usersResult = _mapper.Map<IEnumerable<UserDto>>(users);
+
+                return Ok(usersResult);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Internal Server Error." + ex);
+                return StatusCode(500, ex.Message); ;
+            }
+
         }
 
-        //[HttpGet]
-        //[Route("GetUserByIDDetails/{UserID}")]
-        //public IEnumerable<TblUserDataDetail> GetUserDetails([FromBody] string UserID)
-        //{
-        //    return _flightApplicationDBContext.TblUserDataDetails.ToList();
-        //}
 
-
+        [AllowAnonymous]
         [HttpPost]
-        [Route("PostUserDetails")]
-        public IActionResult PostUserDetails([FromBody] TblUser tblUserDetail)
+        [Route("create")]
+        public IActionResult CreateUser([FromBody] UserCreateDto user)
         {
+            try
+            {
+                if (user == null)
+                {
+                    return BadRequest("User object is null");
+                }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest("Invalid model object");
+                }
+                var userEntity = _mapper.Map<TblUser>(user);
+                userEntity.Status = "Active";
+                userEntity.Role = "User";
+                userEntity.CreatedDate = DateTime.Now;
+                userEntity.ModifiedDate = DateTime.Now;
+               _repository.TblUser.CreateUser(userEntity);
+               _repository.Save();
 
-            _flightApplicationDBContext.TblUsers.Add(tblUserDetail);
-            _flightApplicationDBContext.SaveChanges();
-            return new OkResult();
+                return Ok(new { Message = "Created Successfully" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Internal Server Error." + ex);
+                return StatusCode(500, ex.Message);
+            }
         }
 
-
-        [HttpPut]
-        [Route("PutUserDetails")]
-        public IActionResult PutUserDetails([FromBody] TblUser tblUserDetail)
+        [HttpPut("{id}")]
+        public IActionResult UpdateUser(string id, [FromBody] UserCreateDto user)
         {
+            try
+            {
+                if (user == null || !string.IsNullOrWhiteSpace(id) )
+                {
+                    return BadRequest("User object is null");
+                }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest("Invalid model object");
+                }
+                var userEntity = _repository.TblUser.GetUserById(id);
+                if (userEntity == null)
+                {
+                    return NotFound();
+                }
+                userEntity.FirstName = user.Name;                
+                userEntity.PassWord = user.Password;
+                userEntity.PhoneNumber = user.PhoneNo;               
+                userEntity.ModifiedDate = DateTime.Now;
+                _repository.TblUser.Update(userEntity);
+                _repository.Save();
 
-            _flightApplicationDBContext.Entry(tblUserDetail).State = EntityState.Modified;
-            _flightApplicationDBContext.SaveChanges();
-            return new OkResult();
+                return Ok("Updated Successfully");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Internal Server Error." + ex);
+                return StatusCode(500, ex.Message);
+            }
         }
 
-
-        [HttpDelete]
-        [Route("DeleteUserDetails")]
-        public IActionResult DeleteUserDetails(int UserId)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUser(string id)
         {
+            try
+            {
 
-            var userId = _flightApplicationDBContext.TblUsers.Find(UserId);
-            _flightApplicationDBContext.TblUsers.Remove(userId);
-            _flightApplicationDBContext.SaveChanges();
-            return new OkResult();
+                var userEntity = _repository.TblUser.GetUserById(id);
+                if (userEntity == null)
+                {
+                    return NotFound();
+                }
+                _repository.TblUser.Delete(userEntity);
+                _repository.Save();
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Internal Server Error." + ex);
+                return StatusCode(500, ex.Message);
+            }
         }
-
-
     }
 }

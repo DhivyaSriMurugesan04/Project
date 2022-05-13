@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
 namespace DAL_Reference.Interfaces
 {
     public interface ILoggerManager
     {
-        void LogInfo(string message);
-        void LogWarn(string message);
-        void LogDebug(string message);
-        void LogError(string message);
+        public void LogInfo(string message);
+        public void LogWarn(string message);
+        public void LogDebug(string message);
+        public void LogError(string message);
     }
 }

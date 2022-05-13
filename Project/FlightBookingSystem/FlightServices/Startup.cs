@@ -1,4 +1,6 @@
+using DAL_Reference.Interfaces;
 using DAL_Reference.Models;
+using DAL_Reference.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +14,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using AutoMapper;
+using DAL_Reference;
 
 namespace FlightBookingSystem
 {
@@ -28,8 +33,34 @@ namespace FlightBookingSystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
             services.AddSwaggerGen();
             services.AddDbContext<FlightBookingApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("FlightBookingApplicationDBConnection")));
+
+            services.AddAutoMapper(typeof(MappingProfile));
+
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            services.AddControllers()
+                    .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+
+            //services.AddSpaStaticFiles(configuration =>
+            //{
+            //    configuration.RootPath = "ClientApp/dist";
+            //});
+
+            services.AddApiVersioning(x =>
+            {
+                x.DefaultApiVersion = new ApiVersion(1, 0);
+                x.AssumeDefaultVersionWhenUnspecified = true;
+                x.ReportApiVersions = true;
+            });
+            services.AddSingleton<ILoggerManager, LoggerManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,8 +75,11 @@ namespace FlightBookingSystem
             app.UseSwaggerUI();
             app.UseHttpsRedirection();
 
+            app.UseCors("CorsPolicy");
+
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

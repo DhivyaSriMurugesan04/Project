@@ -16,20 +16,20 @@ namespace DAL_Reference.Repository
         {
             _repository = repositoryContext;
         }
-        void CreateBooking(TblBooking booking)
+        public void CreateBooking(TblBooking booking)
         {
             Create(booking);
         }
-        void UpdateBooking(TblBooking booking)
+        public void UpdateBooking(TblBooking booking)
         {
             Update(booking);
         }
-        void DeleteBooking(TblBooking booking)
+        public void DeleteBooking(TblBooking booking)
         {
             Delete(booking);
         }
 
-        IEnumerable<TblBooking> GetAllBookings()
+        public IEnumerable<TblBooking> GetAllBookings()
         {
             return FindAll()
                .OrderBy(u => u.Pnrid)
@@ -39,7 +39,7 @@ namespace DAL_Reference.Repository
         {
             return FindByCondition(u => u.Pnrid == ID).FirstOrDefault();
         }
-        IEnumerable<TblBooking> GetAllBookingsByUserId(string UserID)
+        public IEnumerable<TblBooking> GetAllBookingsByUserId(string UserID)
         {
             return _repository.TblBookings.Where(u => u.CreatedBy == UserID)
             .Include(u => u.PassengerDetails)
@@ -47,27 +47,27 @@ namespace DAL_Reference.Repository
             .OrderBy(o => o.Pnrid).ToList();
         }
 
-        TblBooking GetBookingByIdWithPassenger(string ID)
+        public TblBooking GetBookingByIdWithPassenger(string ID)
         {
             return _repository.TblBookings.Where(u => u.Pnrid == ID)
                  .Include(u => u.PassengerDetails)
                  .OrderBy(o => o.Pnrid).FirstOrDefault();
         }
-        IEnumerable<TblBooking> GetAllBookingsByPNRIdAndUserId(long Pnrid, long UserId)
+        public IEnumerable<TblBooking> GetAllBookingsByPNRIdAndUserId(string Pnrid, string UserId)
         {
             return FindAll()
               .OrderBy(u => u.Pnrid)
               .ToList();
         }
 
-        TblBooking GetAllBookingsByPNRIdAndUserIdAndTripDate(string Pnrid, string UserId, DateTime tripDate)
+        public TblBooking GetAllBookingsByPNRIdAndUserIdAndTripDate(string Pnrid, string UserId, DateTime tripDate)
         {
             return _repository.TblBookings.Where(u => u.Pnrid == Pnrid && u.CreatedBy == UserId && u.CreatedOn < tripDate)//Need to change as trip date
                 .Include(u => u.PassengerDetails)
                 .OrderBy(o => o.Pnrid).FirstOrDefault();
         }
         
-        IEnumerable<TblBooking> GetBookingHistoryAllByAirlineIdAndFlightId(string airlineId, string flightId, DateTime tripDate)
+        public IEnumerable<TblBooking> GetBookingHistoryAllByAirlineIdAndFlightId(string airlineId, string flightId, DateTime tripDate)
         {
             return _repository.TblBookings.Where(u => u.AirlineId == airlineId && u.FlightId == flightId && u.TripDate.Date == tripDate.Date)
            .Include(u => u.PassengerDetails)
@@ -75,7 +75,7 @@ namespace DAL_Reference.Repository
            .OrderBy(o => o.Pnrid).ToList();
         }
 
-        IEnumerable<TblBooking> GetBookingHistoryAllByUserId(string UserID)
+        public IEnumerable<TblBooking> GetBookingHistoryAllByUserId(string UserID)
         {
             return _repository.TblBookings.Where(u => u.CreatedBy == UserID)
             .Include(u => u.PassengerDetails)

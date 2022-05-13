@@ -46,6 +46,30 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.24, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.25, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Versioning": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.16, )"
@@ -60,7 +84,23 @@
               "target": "Package",
               "version": "[5.0.16, )"
             },
-            "UmbracoCms.Core": {
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[1.3.1, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.15, )"
+            },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[1.7.4, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.17.0, )"
+            },
+            "UmbracoCms": {
               "target": "Package",
               "version": "[8.18.3, )"
             },
@@ -138,6 +178,26 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.24, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.25, )"
+            },
             "Microsoft.AspNetCore.Mvc.Versioning": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -156,6 +216,14 @@
               "target": "Package",
               "version": "[5.0.16, )"
             },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[1.3.1, )"
+            },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[1.7.4, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.3.1, )"
@@ -171,6 +239,10 @@
             "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
               "version": "[6.3.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.17.0, )"
             }
           },
           "imports": [

@@ -32,5 +32,5 @@ namespace DAL_Reference.Models
         public HashSet<TblFlight> TblFlight { get; private set; }
         public HashSet<TblSchedule> TblSchedule { get; private set; }
     }
-    }
+    
 }
