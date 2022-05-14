@@ -8,42 +8,42 @@ using System.Text;
 
 namespace DAL_Reference.Repository
 {
-    public class AirlinesRepo : RepositoryBase<TblAirlines>, IAirlinesRepository
+    public class AirlinesRepo : RepositoryBase<TblAirline>, IAirlinesRepository
     {
         private FlightBookingApplicationDBContext _repositoryContext;
 
         public AirlinesRepo(FlightBookingApplicationDBContext repositoryContext)
             : base(repositoryContext) => _repositoryContext = repositoryContext;
-        public IEnumerable<TblAirlines> GetAllAirlnes()
+        public IEnumerable<TblAirline> GetAllAirlnes()
         {
             return FindAll()
                .OrderBy(u => u.AirlineId)
                .ToList();
         }
 
-        public TblAirlines GetAirlineById(string airlineID)
+        public TblAirline GetAirlineById(long airlineID)
         {
             return FindByCondition(u => u.AirlineId == airlineID).FirstOrDefault();
         }
         
 
-        public IEnumerable<TblAirlines> GetFlightsByAirlineId(string airlineID)
+        public IEnumerable<TblAirline> GetFlightsByAirlineId(long airlineID)
         {
-            return _repositoryContext.TblAirlines.Include(o => o.TblFlight).Where(o => o.AirlineId == airlineID).ToList();
+            return _repositoryContext.TblAirlines.Include(o => o.TblFlights).Where(o => o.AirlineId == airlineID).ToList();
             
         }
         
-        public void CreateAirline(TblAirlines airlinesMaster)
+        public void CreateAirline(TblAirline airlinesMaster)
         {
             Create(airlinesMaster);
         }
 
-        public void UpdateAirline(TblAirlines airlinesMaster)
+        public void UpdateAirline(TblAirline airlinesMaster)
         {
             Update(airlinesMaster);
         }
 
-        public void DeleteAirline(TblAirlines airlinesMaster)
+        public void DeleteAirline(TblAirline airlinesMaster)
         {
             Delete(airlinesMaster);
         }

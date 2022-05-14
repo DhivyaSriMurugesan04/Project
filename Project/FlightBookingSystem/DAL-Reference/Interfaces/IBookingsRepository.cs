@@ -12,12 +12,12 @@ namespace DAL_Reference.Interfaces
         void UpdateBooking(TblBooking booking);
         void DeleteBooking(TblBooking booking);
         IEnumerable<TblBooking> GetAllBookings();
-        TblBooking GetBookingById(string ID);
-        IEnumerable<TblBooking> GetAllBookingsByUserId(string UserID);
-        TblBooking GetBookingByIdWithPassenger(string ID);
-        IEnumerable<TblBooking> GetBookingHistoryAllByUserId(string UserID);
-        IEnumerable<TblBooking> GetAllBookingsByPNRIdAndUserId(string Pnrid, string UserId);        
-        TblBooking GetAllBookingsByPNRIdAndUserIdAndTripDate(string Pnrid, string UserId, DateTime tripDate);
-        IEnumerable<TblBooking> GetBookingHistoryAllByAirlineIdAndFlightId(string airlineId, string flightId, DateTime tripDate);
+        TblBooking GetBookingById(long ID);
+        IEnumerable<TblBooking> GetAllBookingsByUserId(long UserID);
+        TblBooking GetBookingByIdWithPassenger(long ID);
+        IEnumerable<TblBooking> GetBookingHistoryAllByUserId(long UserID);
+        IEnumerable<TblBooking> GetAllBookingsByPNRIdAndUserId(long Pnrid, long UserId);        
+        TblBooking GetAllBookingsByPNRIdAndUserIdAndTripDate(long Pnrid, long UserId, DateTime tripDate);
+        IEnumerable<TblBooking> GetBookingHistoryAllByAirlineIdAndFlightId(long airlineId, long flightId, DateTime tripDate);
     }
 }

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserServices", "UserService
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightServices", "FlightServices\FlightServices.csproj", "{42B76D65-24F7-44AF-9509-EC276EDA4C04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminServices", "AdminServices\AdminServices.csproj", "{32F4340A-77F5-40F0-A09B-D3F99436A570}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminServices", "AdminServices\AdminServices.csproj", "{32F4340A-77F5-40F0-A09B-D3F99436A570}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "APIGateway\APIGateway.csproj", "{8DC6E461-DF46-4E24-8001-49CE0AB8E584}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{32F4340A-77F5-40F0-A09B-D3F99436A570}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32F4340A-77F5-40F0-A09B-D3F99436A570}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32F4340A-77F5-40F0-A09B-D3F99436A570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC6E461-DF46-4E24-8001-49CE0AB8E584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC6E461-DF46-4E24-8001-49CE0AB8E584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC6E461-DF46-4E24-8001-49CE0AB8E584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC6E461-DF46-4E24-8001-49CE0AB8E584}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

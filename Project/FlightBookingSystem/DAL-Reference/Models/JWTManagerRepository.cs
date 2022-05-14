@@ -19,6 +19,10 @@ namespace DAL_Reference.Models
         }
         public Tokens Authentication(string email, string password)
         {
+            if(!(email.Equals(email) || password.Equals(password) ))
+                {
+                return null;
+            }
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.UTF8.GetBytes(configuartion["JWT:Key"]);
 
@@ -26,9 +30,9 @@ namespace DAL_Reference.Models
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Email,email)
+                    new Claim(ClaimTypes.Name,email)
                 }),
-                Expires = DateTime.UtcNow.AddMinutes(10),
+                Expires = DateTime.UtcNow.AddHours(8),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

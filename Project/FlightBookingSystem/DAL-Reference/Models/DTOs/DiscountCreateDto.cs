@@ -13,6 +13,6 @@ namespace DAL_Reference.Models.DTOs
         public DateTime StartDate { get; set; }
         [Required(ErrorMessage = "Expiry Date is required")]
         public DateTime ExpiryDate { get; set; }
-        public string UserID { get; set; }
+        public int UserID { get; set; }
     }
 }

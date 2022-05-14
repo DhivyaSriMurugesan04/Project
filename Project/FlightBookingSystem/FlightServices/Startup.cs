@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using AutoMapper;
 using DAL_Reference;
+using DAL;
 
 namespace FlightBookingSystem
 {
@@ -33,6 +34,7 @@ namespace FlightBookingSystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddConsulConfig(Configuration);
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -64,6 +66,7 @@ namespace FlightBookingSystem
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -74,7 +77,7 @@ namespace FlightBookingSystem
             app.UseSwagger();
             app.UseSwaggerUI();
             app.UseHttpsRedirection();
-
+            app.UseConsul(Configuration);
             app.UseCors("CorsPolicy");
 
             app.UseRouting();

@@ -1,0 +1,371 @@
+{
+  "Routes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/Login/login/",
+      "DownstreamScheme": "http",
+      "ServiceName": "AdminServices",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/Login/login/",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/Users/UsersAPI/",
+      "DownstreamScheme": "http",
+      "ServiceName": "UserServices",
+      "UpstreamPathTemplate": "/api/gatway{v:apiVersion}/flight/Users/UsersAPI/",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/Users/UsersAPI/create",
+      "DownstreamScheme": "http",
+      "ServiceName": "UserServices",
+      "UpstreamPathTemplate": "/api/gatway{v:apiVersion}/flight/Users/UsersAPI/",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/Users/UsersAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "UserServices",
+      "UpstreamPathTemplate": "/api/gatway{v:apiVersion}/flight/Users/UsersAPI/",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/Users/UsersAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "UserServices",
+      "UpstreamPathTemplate": "/api/gatway{v:apiVersion}/flight/Users/UsersAPI/",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/all",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/all",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/byAirlineId/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/byAirlineId/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/create",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/create",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/blockorunblock/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/blockorunblock/{id}",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/{id}",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/{id}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/all",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/all",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/history/{userid}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/history/{userid}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/historyall/{userid}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/historyall/{userid}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/history/{PNRID}/{userid}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/history/{PNRID}/{userid}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/historybyairline/{airlineId}/{flightId}/{tripDate}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/historybyairline/{airlineId}/{flightId}/{tripDate}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/create",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/create",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/cancel",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/cancel",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/{id}",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/{id}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/DiscountAPI/all",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/DiscountAPI/all",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/DiscountAPI/bycode/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/DiscountAPI/bycode/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/DiscountAPI/create",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/DiscountAPI/create",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/DiscountAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/DiscountAPI/{id}",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/DiscountAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/DiscountAPI/{id}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightAPI/all",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightAPI/all",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightAPI/byAirlineId/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightAPI/byAirlineId/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightAPI/create",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightAPI/create",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightAPI/{id}",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightAPI/{id}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/all",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/all",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/history/{PNRID}/{userId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/history/{PNRID}/{userId}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/create",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/create",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/all",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/all",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/GetScheduleById/{Id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/GetScheduleById/{Id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/availableAirlines",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/availableAirlines",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/searchSchedule/{airlineId}/{flightId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/searchSchedule/{airlineId}/{flightId}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/create",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/create",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/{id}",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/{id}",
+      "DownstreamScheme": "http",
+      "ServiceName": "FlightService",
+      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/{id}",
+      "UpstreamHttpMethod": [ "Delete" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": "8500",
+      "Type": "Consul"
+    }
+  }
+}

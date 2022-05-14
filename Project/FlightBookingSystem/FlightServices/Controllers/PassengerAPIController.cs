@@ -13,14 +13,14 @@ using System.Threading.Tasks;
 namespace FlightServices.Controllers
 {
     [Authorize]
-    [ApiVersion("1.0")]
-    [Route("api/{v:apiVersion}/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/{v:apiVersion}/flight/PassengerServices/[controller]")]
     [ApiController]
-    public class PassengerController : ControllerBase
+    public class PassengerAPIController : ControllerBase
     {
         private IRepositoryWrapper _repository;
         private IMapper _mapper;
-        public PassengerController(IRepositoryWrapper repository, IMapper mapper)
+        public PassengerAPIController(IRepositoryWrapper repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -41,7 +41,7 @@ namespace FlightServices.Controllers
             }
         }
 
-        [HttpGet("{Id}")]
+        [HttpGet("{Id}")]        
         public IActionResult GetPassengerById(long Id)
         {
             try
@@ -50,7 +50,7 @@ namespace FlightServices.Controllers
                 {
                     return BadRequest("Please provide valid Id");
                 }
-                var passengerDetail = _repository.TblPassengers.GetPassengerById(Id.ToString());
+                var passengerDetail = _repository.TblPassengers.GetPassengerById(Id);
                 return Ok(passengerDetail);
             }
             catch (Exception ex)
@@ -69,7 +69,7 @@ namespace FlightServices.Controllers
                 {
                     return BadRequest("Please provide valid input");
                 }
-                var passengerDetails = _repository.TblPassengers.GetAllPassengerByPNRIDAndUserID(PNRID.ToString(), userID.ToString());
+                var passengerDetails = _repository.TblPassengers.GetAllPassengerByPNRIDAndUserID(PNRID, userID);
                 return Ok(passengerDetails);
             }
             catch (Exception ex)
@@ -94,7 +94,7 @@ namespace FlightServices.Controllers
                 }
                 var passengerEntity = _mapper.Map<TblPassenger>(passenger);
 
-                passengerEntity.CreatedBy = passenger.UserID.ToString();
+                passengerEntity.CreatedBy = passenger.UserID;
                 passengerEntity.CreatedDate = DateTime.Now;
                 passengerEntity.ModifiedDate = DateTime.Now;
 
@@ -122,7 +122,7 @@ namespace FlightServices.Controllers
                 {
                     return BadRequest("Invalid model object");
                 }
-                var passengerEntity = _repository.TblPassengers.GetPassengerById(id.ToString());
+                var passengerEntity = _repository.TblPassengers.GetPassengerById(id);
                 if (passengerEntity == null)
                 {
                     return NotFound();
@@ -131,7 +131,7 @@ namespace FlightServices.Controllers
 
 
                 passengerEntity.ModifiedDate = DateTime.Now;
-                passengerEntity.ModifiedBy = passenger.UserID.ToString();
+                passengerEntity.ModifiedBy = passenger.UserID;
                 _repository.TblPassengers.Update(passengerEntity);
                 _repository.Save();
 
@@ -149,7 +149,7 @@ namespace FlightServices.Controllers
             try
             {
 
-                var passengerEntity = _repository.TblPassengers.GetPassengerById(id.ToString());
+                var passengerEntity = _repository.TblPassengers.GetPassengerById(id);
                 if (passengerEntity == null)
                 {
                     return NotFound();

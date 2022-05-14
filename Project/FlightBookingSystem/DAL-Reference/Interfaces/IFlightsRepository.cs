@@ -8,8 +8,8 @@ namespace DAL_Reference.Interfaces
     public interface IFlightsRepository : IRepositoryBase<TblFlight>
     {
         IEnumerable<TblFlight> GetAllFlights();
-        IEnumerable<TblFlight> GetFlightByAirlineId(string AirlineID);
-        TblFlight GetFlightById(string flightID);
+        IEnumerable<TblFlight> GetFlightByAirlineId(long AirlineID);
+        TblFlight GetFlightById(long flightID);
         
 
         void CreateFlight(TblFlight flightsMaster);

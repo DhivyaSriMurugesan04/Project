@@ -8,7 +8,7 @@ namespace DAL_Reference.Models.DTOs
 {
     public class PassengerCreateDto
     {
-      //[Required(ErrorMessage = "PNR ID is required")]
+      
         public long Pnrid { get; set; }
         [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
@@ -34,7 +34,7 @@ namespace DAL_Reference.Models.DTOs
         public decimal Price { get; set; }
         [Required(ErrorMessage = "Total Price is required")]
         public decimal TotalPrice { get; set; }
-        // [Required(ErrorMessage = "User ID is required")]
+        
         public int UserID { get; set; }
     }
 }

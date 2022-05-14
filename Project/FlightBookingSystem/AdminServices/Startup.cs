@@ -22,6 +22,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using AutoMapper;
 using DAL_Reference;
+using DAL;
 
 namespace AdminServices
 {
@@ -39,6 +40,7 @@ namespace AdminServices
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLogging();
+            services.AddConsulConfig(Configuration);
             services.AddSwaggerGen();
             services.AddCors(options =>
             {
@@ -95,6 +97,7 @@ namespace AdminServices
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        [Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -106,7 +109,7 @@ namespace AdminServices
             app.UseSwaggerUI();
             app.UseHttpsRedirection();
 
-
+            app.UseConsul(Configuration);
             app.UseCors("CorsPolicy");
 
             app.UseRouting();

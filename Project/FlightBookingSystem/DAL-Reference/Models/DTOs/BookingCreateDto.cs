@@ -9,15 +9,15 @@ namespace DAL_Reference.Models.DTOs
     public class BookingCreateDto
     {
         [Required(ErrorMessage = "Flight ID is required")]
-        public string FlightID { get; set; }
+        public long FlightID { get; set; }
         [Required(ErrorMessage = "Airline ID is required")]
-        public string AirlineID { get; set; }
+        public long AirlineID { get; set; }
         [Required(ErrorMessage = "Payment mode is required")]
         public string ModePayment { get; set; }
         [Required(ErrorMessage = "Trip type is required")]
         public string TripType { get; set; }
         [Required(ErrorMessage = "User ID is required")]
-        public string UserID { get; set; }
+        public long UserID { get; set; }
         [Required(ErrorMessage = "Trip Date is required")]
         public DateTime TripDate { get; set; }
         [Required(ErrorMessage = "Passenger Detail is required")]

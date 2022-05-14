@@ -8,9 +8,9 @@ namespace DAL_Reference.Interfaces
     public interface IScheduleRepository : IRepositoryBase<TblSchedule>
     {
         IEnumerable<TblSchedule> GetAllSchedules();
-        IEnumerable<TblSchedule> GetAllSchedulesByFlightAndAirline(string AirlineID, string flightID);
+        IEnumerable<TblSchedule> GetAllSchedulesByFlightAndAirline(long AirlineID, long flightID);
         IEnumerable<TblSchedule> GetAvailableAirlines(string source, string destination, DateTime tripDate);
-        TblSchedule GetScheduleById(string ID);
+        TblSchedule GetScheduleById(long ID);
         void CreateSchedule(TblSchedule scheduleMaster);
         void UpdateSchedule(TblSchedule scheduleMaster);
         void DeleteSchedule(TblSchedule scheduleMaster);

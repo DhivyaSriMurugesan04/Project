@@ -13,14 +13,14 @@ using System.Threading.Tasks;
 namespace FlightServices.Controllers
 {
     [Authorize]
-    [ApiVersion("1.0")]
-    [Route("api/{v:apiVersion}/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/{v:apiVersion}/flight/scheduleServices/[controller]")]
     [ApiController]
-    public class ScheduleController : ControllerBase
+    public class ScheduleAPIController : ControllerBase
     {
         private IRepositoryWrapper _repository;
         private IMapper _mapper;
-        public ScheduleController(IRepositoryWrapper repository, IMapper mapper)
+        public ScheduleAPIController(IRepositoryWrapper repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -42,7 +42,8 @@ namespace FlightServices.Controllers
 
         }
 
-        [HttpGet("{Id}")]
+        [HttpGet]
+        [Route("[Action]/{Id}")]
         public IActionResult GetScheduleById(long Id)
         {
             try
@@ -51,7 +52,7 @@ namespace FlightServices.Controllers
                 {
                     return BadRequest("Please provide valid schedule Id");
                 }
-                var schedule = _repository.TblSchedules.GetScheduleById(Id.ToString());
+                var schedule = _repository.TblSchedules.GetScheduleById(Id);
                 return Ok(schedule);
             }
             catch (Exception ex)
@@ -80,8 +81,8 @@ namespace FlightServices.Controllers
             }
         }
 
-        [Route("searchSchedule/{airlineID}/{flightID}")]
         [HttpGet]
+        [Route("searchSchedule/{airlineID}/{flightID}")]        
         public IActionResult GetScheduleByAirlineIDAndFlightID(long airlineID, long flightID)
         {
             try
@@ -90,7 +91,7 @@ namespace FlightServices.Controllers
                 {
                     return BadRequest("Please provide valid discount code");
                 }
-                var schedules = _repository.TblSchedules.GetAllSchedulesByFlightAndAirline(airlineID.ToString(), flightID.ToString());
+                var schedules = _repository.TblSchedules.GetAllSchedulesByFlightAndAirline(airlineID, flightID);
                 return Ok(schedules);
             }
             catch (Exception ex)
@@ -143,14 +144,14 @@ namespace FlightServices.Controllers
                 {
                     return BadRequest("Invalid model object");
                 }
-                var scheduleEntity = _repository.TblSchedules.GetScheduleById(id.ToString());
+                var scheduleEntity = _repository.TblSchedules.GetScheduleById(id);
                 if (scheduleEntity == null)
                 {
                     return NotFound();
                 }
                 _mapper.Map(schedule, scheduleEntity);
 
-                scheduleEntity.ModifiedBy = schedule.UserID.ToString();
+                scheduleEntity.ModifiedBy = schedule.UserID;
                 scheduleEntity.ModifiedDate = DateTime.Now;               
                 _repository.TblSchedules.Update(scheduleEntity);
                 _repository.Save();
@@ -169,7 +170,7 @@ namespace FlightServices.Controllers
             try
             {
 
-                var scheduleEntity = _repository.TblSchedules.GetScheduleById(id.ToString());
+                var scheduleEntity = _repository.TblSchedules.GetScheduleById(id);
                 if (scheduleEntity == null)
                 {
                     return NotFound();

@@ -23,7 +23,8 @@ namespace DAL_Reference.Repository
                .ToList();
         }
 
-        public TblUser GetUserById(string UserId)
+
+        public TblUser GetUserById(long UserId)
         {
             return FindByCondition(u => u.UserId == UserId).FirstOrDefault();
         }

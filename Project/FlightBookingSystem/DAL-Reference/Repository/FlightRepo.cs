@@ -19,17 +19,17 @@ namespace DAL_Reference.Repository
         }
         public IEnumerable<TblFlight> GetAllFlights()
         {
-           return _repository.TblFlights.Where(u => !string.IsNullOrWhiteSpace(u.AirlineId))
+           return _repository.TblFlights.Where(u =>u.AirlineId>0)
             .Include(u => u.Airline)
             .OrderBy(o => o.FlightId).ToList();
         }
 
-        public TblFlight GetFlightById(string FlightId)
+        public TblFlight GetFlightById(long FlightId)
         {
             return FindByCondition(u => u.FlightId == FlightId).FirstOrDefault();
         }
 
-        public IEnumerable<TblFlight> GetFlightByAirlineId(string AirlineId)
+        public IEnumerable<TblFlight> GetFlightByAirlineId(long AirlineId)
         {
             return FindAll().Where(f => f.AirlineId == AirlineId).ToList();
         }

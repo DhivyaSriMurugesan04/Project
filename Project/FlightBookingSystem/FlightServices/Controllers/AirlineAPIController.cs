@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 
 namespace FlightServices.Controllers
 {
-    [Authorize]
-    [ApiVersion("1.0")]
-    [Route("api/{v:apiVersion}/[controller]")]
+    [AllowAnonymous]
+    [ApiVersion("2.0")]
+    [Route("api/{v:apiVersion}/flight/FlightServices/[controller]")]
     [ApiController]
     public class AirlineAPIController : ControllerBase
     {
@@ -27,8 +27,9 @@ namespace FlightServices.Controllers
             _mapper = mapper;
         }
 
-        [Route("all")]
+        
         [HttpGet]
+        [Route("all")]
         public IActionResult GetAllAirlines()
         {
             try
@@ -46,11 +47,11 @@ namespace FlightServices.Controllers
 
         [HttpGet]
         [Route("byAirlineId/{Id}")]
-        public IActionResult GetFlightsByAirlineId(string Id)
+        public IActionResult GetFlightsByAirlineId(long Id)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(Id))
+                if (Id <= 0)
                 {
                     return BadRequest("Please provide valid Airline Id");
                 }
@@ -78,7 +79,7 @@ namespace FlightServices.Controllers
                 {
                     return BadRequest("Invalid model object");
                 }
-                var airlineEntity = _mapper.Map<TblAirlines>(airline);
+                var airlineEntity = _mapper.Map<TblAirline>(airline);
 
                 airlineEntity.CreatedOn = DateTime.Now;
                 airlineEntity.ModifiedDate = DateTime.Now;
@@ -95,11 +96,11 @@ namespace FlightServices.Controllers
 
         [HttpPost]
         [Route("blockorunblock/{id}")]
-        public IActionResult BlockOrUnblockAirline(string id, [FromBody] AirlineEditStatusDto airline)
+        public IActionResult BlockOrUnblockAirline(long id, [FromBody] AirlineEditStatusDto airline)
         {
             try
             {
-                if (airline == null || string.IsNullOrWhiteSpace(id))
+                if (airline == null || id <  0 )
                 {
                     return BadRequest("Airline object is null");
                 }
@@ -135,11 +136,11 @@ namespace FlightServices.Controllers
         }
 
         [HttpPost("{id}")]
-        public IActionResult UpdateAirline(string id, [FromBody] AirlineCreateDto airline)
+        public IActionResult UpdateAirline(long id, [FromBody] AirlineCreateDto airline)
         {
             try
             {
-                if (airline == null || string.IsNullOrWhiteSpace(id))
+                if (airline == null || id < 0 )
                 {
                     return BadRequest("Airline object is null");
                 }
@@ -169,7 +170,7 @@ namespace FlightServices.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteAirline(string id)
+        public IActionResult DeleteAirline(long id)
         {
             try
             {

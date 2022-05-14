@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 namespace FlightServices.Controllers
 {
     [Authorize]
-    [ApiVersion("1.0")]
-    [Route("api/{v:apiVersion}/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/{v:apiVersion}/flight/[controller]")]
     [ApiController]
     public class BookingAPIController : ControllerBase
     {
@@ -26,8 +26,8 @@ namespace FlightServices.Controllers
             _mapper = mapper;
         }
 
-        [Route("all")]
         [HttpGet]
+        [Route("all")]        
         public IActionResult GetAllBookings()
         {
             try
@@ -41,12 +41,12 @@ namespace FlightServices.Controllers
             }
         }
 
-        [HttpGet("{Id}")]
-        public IActionResult GetBookingById(string Id)
+        [HttpGet("{Id}")]        
+        public IActionResult GetBookingById(long Id)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(Id))
+                if (Id <=0 )
                 {
                     return BadRequest("Please provide valid PNR Id");
                 }
@@ -61,11 +61,11 @@ namespace FlightServices.Controllers
 
         [Route("history/{userId}")]
         [HttpGet]
-        public IActionResult GetBookingByUserId(string userId)
+        public IActionResult GetBookingByUserId(long userId)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(userId))
+                if (userId<=0)
                 {
                     return BadRequest("Please provide valid user Id");
                 }
@@ -80,11 +80,11 @@ namespace FlightServices.Controllers
 
         [Route("historyall/{userId}")]
         [HttpGet]
-        public IActionResult GetBookingHistoryAllByUserId(string userId)
+        public IActionResult GetBookingHistoryAllByUserId(long userId)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(userId))
+                if (userId<=0)
                 {
                     return BadRequest("Please provide valid user Id");
                 }
@@ -99,11 +99,11 @@ namespace FlightServices.Controllers
 
         [Route("history/{PNRID}/{userID}")]
         [HttpGet]
-        public IActionResult GetAllBookingsByPNRIdAndUserId(string PNRID, string userID)
+        public IActionResult GetAllBookingsByPNRIdAndUserId(long PNRID, long userID)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(PNRID)|| string.IsNullOrWhiteSpace(userID))
+                if (PNRID <=0 || userID<=0)
                 {
                     return BadRequest("Please provide valid input");
                 }
@@ -119,11 +119,11 @@ namespace FlightServices.Controllers
 
         [Route("historybyairline/{airlineId}/{flightId}/{tripDate}")]
         [HttpGet]
-        public IActionResult GetAllBookingsByAirlineIdAndFlightId(string airlineId, string flightId, DateTime tripDate)
+        public IActionResult GetAllBookingsByAirlineIdAndFlightId(long airlineId, long flightId, DateTime tripDate)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(airlineId) || string.IsNullOrWhiteSpace(flightId) || tripDate == null)
+                if (airlineId<=0 || flightId<=0 || tripDate == null)
                 {
                     return BadRequest("Please provide valid input");
                 }
@@ -158,9 +158,9 @@ namespace FlightServices.Controllers
                 var bookings = _repository.TblBooking.GetAllBookingsByPNRIdAndUserIdAndTripDate(booking.PnrID, booking.UserID, currentDate);
                 if (bookings != null)
                 {
-                    if (bookings.PassengerDetails.Count() > 0)
+                    if (bookings.TblPassenger.Count() > 0)
                     {
-                        var passengerDetails = bookings.PassengerDetails.Where(p => p.PassengerId == booking.PassengerId).FirstOrDefault();
+                        var passengerDetails = bookings.TblPassenger.Where(p => p.PassengerId == booking.PassengerId).FirstOrDefault();
                         passengerDetails.Status = "Cancelled";
                         //foreach (PassengerDetails item in bookings.PassengerDetails)
                         //{
@@ -183,7 +183,7 @@ namespace FlightServices.Controllers
         {
             try
             {
-                string discounId="VXVXY";
+                long? discounId=0;
 
                 if (booking == null)
                 {
@@ -199,10 +199,10 @@ namespace FlightServices.Controllers
                 bookingEntity.CreatedOn = DateTime.Now;
                 bookingEntity.ModifiedDate = DateTime.Now;
 
-                foreach (var passenger in bookingEntity.PassengerDetails)
+                foreach (var passenger in bookingEntity.TblPassenger)
                 {
                     discounId = passenger.DiscountId;
-                    if (string.IsNullOrEmpty(passenger.DiscountId))
+                    if (passenger.DiscountId == 0)
                     {
                         passenger.DiscountId = null;
                     }
@@ -212,7 +212,7 @@ namespace FlightServices.Controllers
                     passenger.Status = "Booked";
                 }
                
-                var discountEntity = _repository.TblDiscounts.GetDiscountById(discounId);
+                var discountEntity = _repository.TblDiscounts.GetDiscountById((long)discounId);
                 if (discountEntity != null)
                 {
                     discountEntity.Status = "Applied";
@@ -233,12 +233,12 @@ namespace FlightServices.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateBooking(string id, [FromBody] BookingCreateDto booking)
+        [HttpPut("{id}")]        
+        public IActionResult UpdateBooking(long id, [FromBody] BookingCreateDto booking)
         {
             try
             {
-                if (booking == null || string.IsNullOrWhiteSpace(id) )
+                if (booking == null || id<=0 )
                 {
                     return BadRequest("Booking object is null");
                 }
@@ -271,7 +271,8 @@ namespace FlightServices.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteBooking(string id)
+
+        public IActionResult DeleteBooking(long id)
         {
             try
             {

@@ -37,7 +37,8 @@ namespace AdminServices.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost, Route("login")]
+        [HttpPost]
+        [Route("login")]
         public IActionResult Login([FromBody] UserCredentials user)
         {
             try

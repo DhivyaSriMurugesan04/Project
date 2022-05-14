@@ -146,9 +146,12 @@ D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\UserServices.
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\UserServices.pdb
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Consul.dll
+D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\FluentValidation.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Humanizer.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.MiddlewareAnalysis.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Versioning.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -162,6 +165,7 @@ D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.Ext
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DiagnosticAdapter.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
@@ -177,6 +181,8 @@ D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Newtonsoft.Js
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\NLog.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Ocelot.dll
+D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Ocelot.Provider.Consul.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Dhivya\FlightBookingSystem\UserServices\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll

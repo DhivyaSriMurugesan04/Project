@@ -8,7 +8,7 @@ namespace DAL_Reference.Interfaces
     public interface IUserRepository : IRepositoryBase<TblUser>
     {
         IEnumerable<TblUser> GetAllUsers();
-        TblUser GetUserById(string UserId);
+        TblUser GetUserById(long UserId);
 
         TblUser GetUserByEmailAndPwd(string email, string pwd);
         void CreateUser(TblUser usersMaster);

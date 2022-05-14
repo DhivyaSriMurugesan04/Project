@@ -15,7 +15,7 @@ namespace DAL_Reference
         {
             CreateMap<TblUser, UserDto>();
             CreateMap<UserCreateDto, TblUser>();
-            CreateMap<AirlineCreateDto, TblAirlines>();
+            CreateMap<AirlineCreateDto, TblAirline>();
             CreateMap<FlightCreateDto, TblFlight>();
             CreateMap<DiscountCreateDto, TblDiscount>();
             CreateMap<ScheduleCreateDto, TblSchedule>();

@@ -15,7 +15,7 @@ namespace FlightServices.Controllers
 {
     [Authorize]
     [ApiVersion("2.0")]
-    [Route("api/{v:apiVersion}/[controller]")]
+    [Route("api/{v:apiVersion}/flight/flightServices/[controller]")]
     [ApiController]
     public class FlightAPIController : ControllerBase
     {
@@ -49,7 +49,7 @@ namespace FlightServices.Controllers
 
         [Route("byAirlineId/{id}")]
         [HttpGet]
-        public IActionResult GetFlightsByAirlineId(string id)
+        public IActionResult GetFlightsByAirlineId(long id)
         {
             try
             {
@@ -94,11 +94,11 @@ namespace FlightServices.Controllers
         }
 
         [HttpPost("{id}")]
-        public IActionResult UpdateFlight(string id, [FromBody] FlightCreateDto flight)
+        public IActionResult UpdateFlight(long id, [FromBody] FlightCreateDto flight)
         {
             try
             {
-                if (flight == null || !string.IsNullOrWhiteSpace(id))
+                if (flight == null || id<=0)
                 {
                     return BadRequest("Flight object is null");
                 }
@@ -128,7 +128,7 @@ namespace FlightServices.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteFlight(string id)
+        public IActionResult DeleteFlight(long id)
         {
             try
             {

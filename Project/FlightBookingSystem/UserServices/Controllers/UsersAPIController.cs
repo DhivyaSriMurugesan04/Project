@@ -14,9 +14,9 @@ using System.Threading.Tasks;
 
 namespace UserServices.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [ApiVersion("2.0")]
-    [Route("api/{v:apiVersion}/[controller]")]
+    [Route("api/{v:apiVersion}/flight/Users/[controller]")]
     [ApiController]
     public class UsersAPIController : ControllerBase
     {
@@ -86,12 +86,12 @@ namespace UserServices.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateUser(string id, [FromBody] UserCreateDto user)
+        [HttpPut("{id}")]                
+        public IActionResult UpdateUser(long id, [FromBody] UserCreateDto user)
         {
             try
             {
-                if (user == null || !string.IsNullOrWhiteSpace(id) )
+                if (user == null || id <= 0 )
                 {
                     return BadRequest("User object is null");
                 }
@@ -121,7 +121,7 @@ namespace UserServices.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteUser(string id)
+        public IActionResult DeleteUser(long id)
         {
             try
             {

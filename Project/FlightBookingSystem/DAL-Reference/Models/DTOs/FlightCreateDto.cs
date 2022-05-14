@@ -8,7 +8,7 @@ namespace DAL_Reference.Models.DTOs
     public class FlightCreateDto
     {
         [Required(ErrorMessage = "Airline Id is required")]
-        public string AirlineID { get; set; }
+        public long AirlineID { get; set; }
 
         [Required(ErrorMessage = "Total Seats is required")]
         public int TotalSeats { get; set; }
@@ -21,7 +21,7 @@ namespace DAL_Reference.Models.DTOs
 
         [Required(ErrorMessage = "Instrument Used is required")]
         public string InstrumentUsed { get; set; }
-        public string UserID { get; set; }
+        public long UserID { get; set; }
 
     }
 }

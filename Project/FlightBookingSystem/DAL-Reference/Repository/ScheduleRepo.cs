@@ -24,11 +24,11 @@ namespace DAL_Reference.Repository
                .ToList();
         }
 
-        public TblSchedule GetScheduleById(string ID)
+        public TblSchedule GetScheduleById(long ID)
         {
             return FindByCondition(u => u.ScheduleId == ID).FirstOrDefault();
         }
-        public IEnumerable<TblSchedule> GetAllSchedulesByFlightAndAirline(string airlineID, string flightId)
+        public IEnumerable<TblSchedule> GetAllSchedulesByFlightAndAirline(long airlineID, long flightId)
         {
             return FindAll()
                 .Where(u => u.AirlineId == airlineID && u.FlightId == flightId)

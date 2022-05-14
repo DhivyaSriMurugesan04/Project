@@ -21,7 +21,7 @@ namespace DAL_Reference.Repository
                .ToList();
         }
 
-        public TblDiscount GetDiscountById(string DiscountId)
+        public TblDiscount GetDiscountById(long DiscountId)
         {
             return FindByCondition(u => u.DiscountId == DiscountId).FirstOrDefault();
         }

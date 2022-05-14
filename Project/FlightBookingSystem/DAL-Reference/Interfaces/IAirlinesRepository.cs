@@ -5,14 +5,14 @@ using System.Text;
 
 namespace DAL_Reference.Interfaces
 {
-    public interface IAirlinesRepository : IRepositoryBase<TblAirlines>
+    public interface IAirlinesRepository : IRepositoryBase<TblAirline>
     {
-        IEnumerable<TblAirlines> GetAllAirlnes();
-        TblAirlines GetAirlineById(string airlineID);
-        IEnumerable<TblAirlines> GetFlightsByAirlineId(string airlineID);
+        IEnumerable<TblAirline> GetAllAirlnes();
+        TblAirline GetAirlineById(long airlineID);
+        IEnumerable<TblAirline> GetFlightsByAirlineId(long airlineID);
 
-        void CreateAirline(TblAirlines airlinesMaster);
-        void UpdateAirline(TblAirlines airlinesMaster);
-        void DeleteAirline(TblAirlines airlinesMaster);
+        void CreateAirline(TblAirline airlinesMaster);
+        void UpdateAirline(TblAirline airlinesMaster);
+        void DeleteAirline(TblAirline airlinesMaster);
     }
 }

@@ -14,13 +14,13 @@ namespace FlightServices.Controllers
 {
     [Authorize]
     [ApiVersion("2.0")]
-    [Route("api/{v:apiVersion}/[controller]")]
+    [Route("api/{v:apiVersion}/flight/[controller]")]
     [ApiController]
-    public class DiscountController : ControllerBase
+    public class DiscountAPIController : ControllerBase
     {
         private IRepositoryWrapper _repository;
         private IMapper _mapper;
-        public DiscountController(IRepositoryWrapper repository, IMapper mapper)
+        public DiscountAPIController(IRepositoryWrapper repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -110,7 +110,7 @@ namespace FlightServices.Controllers
                 {
                     return BadRequest("Invalid model object");
                 }
-                var discountEntity = _repository.TblDiscounts.GetDiscountById(id.ToString());
+                var discountEntity = _repository.TblDiscounts.GetDiscountById(id);
                 if (discountEntity == null)
                 {
                     return NotFound();
@@ -137,7 +137,7 @@ namespace FlightServices.Controllers
             try
             {
 
-                var discountEntity = _repository.TblDiscounts.GetDiscountById(id.ToString());
+                var discountEntity = _repository.TblDiscounts.GetDiscountById(id);
                 if (discountEntity == null)
                 {
                     return NotFound();

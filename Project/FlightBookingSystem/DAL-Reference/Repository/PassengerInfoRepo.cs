@@ -21,26 +21,26 @@ namespace DAL_Reference.Repository
                .ToList();
         }
 
-        public TblPassenger GetPassengerById(string ID)
+        public TblPassenger GetPassengerById(long ID)
         {
             return FindByCondition(u => u.PassengerId == ID).FirstOrDefault();
         }
 
-        public IEnumerable<TblPassenger> GetAllPassengerByUserId(string userID)
+        public IEnumerable<TblPassenger> GetAllPassengerByUserId(long userID)
         {
             return FindAll()
                 .Where(u => u.CreatedBy == userID)
                .OrderBy(u => u.Pnrid)
                .ToList();
         }
-        public IEnumerable<TblPassenger> GetAllPassengerByPNRID(string Pnrid)
+        public IEnumerable<TblPassenger> GetAllPassengerByPNRID(long Pnrid)
         {
             return FindAll()
                 .Where(u => u.Pnrid == Pnrid)
                .OrderBy(u => u.Pnrid)
                .ToList();
         }
-        public IEnumerable<TblPassenger> GetAllPassengerByPNRIDAndUserID(string Pnrid, string userID)
+        public IEnumerable<TblPassenger> GetAllPassengerByPNRIDAndUserID(long Pnrid, long userID)
         {
             return FindAll()
                 .Where(u => u.Pnrid == Pnrid && u.CreatedBy == userID)

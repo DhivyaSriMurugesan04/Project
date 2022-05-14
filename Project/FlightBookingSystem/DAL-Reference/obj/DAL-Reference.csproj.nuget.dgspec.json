@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[11.0.0, )"
             },
+            "Consul": {
+              "target": "Package",
+              "version": "[1.6.10.5, )"
+            },
             "Microsoft.AspNetCore.Authentication": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -95,6 +99,30 @@
             "NLog.Extensions.Logging": {
               "target": "Package",
               "version": "[1.7.4, )"
+            },
+            "Ocelot": {
+              "target": "Package",
+              "version": "[16.0.1, )"
+            },
+            "Ocelot.Provider.Consul": {
+              "target": "Package",
+              "version": "[16.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.3.1, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
