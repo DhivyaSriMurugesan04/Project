@@ -81,7 +81,9 @@ namespace FlightServices.Controllers
                 }
                 var airlineEntity = _mapper.Map<TblAirline>(airline);
 
+                airlineEntity.CreatedBy = airline.UserID;
                 airlineEntity.CreatedOn = DateTime.Now;
+                airlineEntity.ModifiedBy = airline.UserID;
                 airlineEntity.ModifiedDate = DateTime.Now;
                _repository.TblAirline.CreateAirline(airlineEntity);
                _repository.Save();

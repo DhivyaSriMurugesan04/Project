@@ -41,11 +41,9 @@ namespace DAL_Reference.Models
             modelBuilder.Entity<TblAirline>(entity =>
             {
                 entity.HasKey(e => e.AirlineId)
-                    .HasName("PK__tblAirli__DC458213352BDAEB");
+                    .HasName("PK__tblAirli__DC458213C04401F1");
 
                 entity.ToTable("tblAirline");
-
-                entity.Property(e => e.AirlineId).ValueGeneratedNever();
 
                 entity.Property(e => e.Address)
                     .IsRequired()
@@ -63,16 +61,7 @@ namespace DAL_Reference.Models
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.CreatedBy)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");
-
-                entity.Property(e => e.ModifiedBy)
-                    .IsRequired()
-                    .HasMaxLength(100);
 
                 entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
             });
@@ -88,17 +77,9 @@ namespace DAL_Reference.Models
                     .ValueGeneratedNever()
                     .HasColumnName("PNRID");
 
-                entity.Property(e => e.CreatedBy)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
                 entity.Property(e => e.CreatedOn).HasColumnType("datetime");
 
                 entity.Property(e => e.ModeOfPayment)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.ModifiedBy)
                     .IsRequired()
                     .HasMaxLength(100);
 
@@ -114,7 +95,7 @@ namespace DAL_Reference.Models
                     .WithMany(p => p.TblBookings)
                     .HasForeignKey(d => d.AirlineId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__tblBookin__Airli__4F7CD00D");
+                    .HasConstraintName("FK__tblBookin__Airli__5CD6CB2B");
             });
 
             modelBuilder.Entity<TblDiscount>(entity =>
@@ -130,10 +111,6 @@ namespace DAL_Reference.Models
 
                 entity.Property(e => e.AppliedOn).HasColumnType("datetime");
 
-                entity.Property(e => e.CreatedBy)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.DiscountCode)
@@ -141,10 +118,6 @@ namespace DAL_Reference.Models
                     .HasMaxLength(200);
 
                 entity.Property(e => e.ExpiryDate).HasColumnType("datetime");
-
-                entity.Property(e => e.ModifiedBy)
-                    .IsRequired()
-                    .HasMaxLength(100);
 
                 entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
 
@@ -164,19 +137,11 @@ namespace DAL_Reference.Models
 
                 entity.Property(e => e.FlightId).ValueGeneratedNever();
 
-                entity.Property(e => e.CreatedBy)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.InstrumentUsed)
                     .IsRequired()
                     .HasMaxLength(100);
-
-                entity.Property(e => e.ModifiedBy)
-                    .IsRequired()
-                    .HasMaxLength(50);
 
                 entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
 
@@ -184,21 +149,19 @@ namespace DAL_Reference.Models
                     .WithMany(p => p.TblFlights)
                     .HasForeignKey(d => d.AirlineId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__tblFlight__Airli__534D60F1");
+                    .HasConstraintName("FK__tblFlight__Airli__5DCAEF64");
             });
 
             modelBuilder.Entity<TblPassenger>(entity =>
             {
                 entity.HasKey(e => e.PassengerId)
-                .HasName("PK__tblPasse__88915FB0F8086FE4");
+                    .HasName("PK__tblPasse__88915FB0F8086FE4");
 
                 entity.ToTable("tblPassenger");
 
-                entity.Property(e => e.Age).HasColumnName("age");
+                entity.Property(e => e.PassengerId).ValueGeneratedNever();
 
-                entity.Property(e => e.CreatedBy)
-                    .IsRequired()
-                    .HasMaxLength(100);
+                entity.Property(e => e.Age).HasColumnName("age");
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
@@ -211,10 +174,6 @@ namespace DAL_Reference.Models
                     .HasMaxLength(50);
 
                 entity.Property(e => e.MealPreference)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.ModifiedBy)
                     .IsRequired()
                     .HasMaxLength(100);
 
@@ -247,19 +206,19 @@ namespace DAL_Reference.Models
                     .HasMaxLength(100);
 
                 entity.HasOne(d => d.Discount)
-                    .WithMany(p => p.TblPassenger)
+                    .WithMany(p => p.TblPassengers)
                     .HasForeignKey(d => d.DiscountId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__tblPassen__Disco__5629CD9C");
 
                 entity.HasOne(d => d.Pnr)
-                    .WithMany(p => p.TblPassenger)
+                    .WithMany(p => p.TblPassengers)
                     .HasForeignKey(d => d.Pnrid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__tblPassen__PNRID__5441852A");
 
                 entity.HasOne(d => d.Schedule)
-                    .WithMany()
+                    .WithMany(p => p.TblPassengers)
                     .HasForeignKey(d => d.ScheduleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__tblPassen__Sched__5535A963");
@@ -278,10 +237,6 @@ namespace DAL_Reference.Models
 
                 entity.Property(e => e.BusinessTicketPrice).HasColumnType("money");
 
-                entity.Property(e => e.CreatedBy)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.DepartureTime).HasColumnType("datetime");
@@ -291,10 +246,6 @@ namespace DAL_Reference.Models
                     .HasMaxLength(200);
 
                 entity.Property(e => e.MealPreferences)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
-                entity.Property(e => e.ModifiedBy)
                     .IsRequired()
                     .HasMaxLength(100);
 
@@ -314,7 +265,7 @@ namespace DAL_Reference.Models
                     .WithMany(p => p.TblSchedules)
                     .HasForeignKey(d => d.AirlineId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__tblSchedu__Airli__5812160E");
+                    .HasConstraintName("FK__tblSchedu__Airli__5EBF139D");
 
                 entity.HasOne(d => d.Flight)
                     .WithMany(p => p.TblSchedules)
@@ -334,10 +285,6 @@ namespace DAL_Reference.Models
                     .ValueGeneratedNever()
                     .HasColumnName("UserID");
 
-                entity.Property(e => e.CreatedBy)
-                    .IsRequired()
-                    .HasMaxLength(100);
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.EmailId)
@@ -352,10 +299,6 @@ namespace DAL_Reference.Models
                 entity.Property(e => e.LastName)
                     .IsRequired()
                     .HasMaxLength(200);
-
-                entity.Property(e => e.ModifiedBy)
-                    .IsRequired()
-                    .HasMaxLength(100);
 
                 entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
 

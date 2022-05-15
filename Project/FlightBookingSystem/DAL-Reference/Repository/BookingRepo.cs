@@ -42,7 +42,7 @@ namespace DAL_Reference.Repository
         public IEnumerable<TblBooking> GetAllBookingsByUserId(long UserID)
         {
             return _repository.TblBookings.Where(u => u.CreatedBy == UserID)
-            .Include(u => u.TblPassenger)
+            .Include(u => u.TblPassengers)
             .Include(u => u.Airline)
             .OrderBy(o => o.Pnrid).ToList();
         }
@@ -50,7 +50,7 @@ namespace DAL_Reference.Repository
         public TblBooking GetBookingByIdWithPassenger(long ID)
         {
             return _repository.TblBookings.Where(u => u.Pnrid == ID)
-                 .Include(u => u.TblPassenger)
+                 .Include(u => u.TblPassengers)
                  .OrderBy(o => o.Pnrid).FirstOrDefault();
         }
         public IEnumerable<TblBooking> GetAllBookingsByPNRIdAndUserId(long Pnrid, long UserId)
@@ -63,14 +63,14 @@ namespace DAL_Reference.Repository
         public TblBooking GetAllBookingsByPNRIdAndUserIdAndTripDate(long Pnrid, long UserId, DateTime tripDate)
         {
             return _repository.TblBookings.Where(u => u.Pnrid == Pnrid && u.CreatedBy == UserId && u.CreatedOn < tripDate)//Need to change as trip date
-                .Include(u => u.TblPassenger)
+                .Include(u => u.TblPassengers)
                 .OrderBy(o => o.Pnrid).FirstOrDefault();
         }
         
         public IEnumerable<TblBooking> GetBookingHistoryAllByAirlineIdAndFlightId(long airlineId, long flightId, DateTime tripDate)
         {
             return _repository.TblBookings.Where(u => u.AirlineId == airlineId && u.FlightId == flightId && u.TripDate.Date == tripDate.Date)
-           .Include(u => u.TblPassenger)
+           .Include(u => u.TblPassengers)
            .Include(u => u.Airline)
            .OrderBy(o => o.Pnrid).ToList();
         }
@@ -78,7 +78,7 @@ namespace DAL_Reference.Repository
         public IEnumerable<TblBooking> GetBookingHistoryAllByUserId(long UserID)
         {
             return _repository.TblBookings.Where(u => u.CreatedBy == UserID)
-            .Include(u => u.TblPassenger)
+            .Include(u => u.TblPassengers)
             .Include(u => u.Airline)
             .OrderBy(o => o.Pnrid).ToList();
         }

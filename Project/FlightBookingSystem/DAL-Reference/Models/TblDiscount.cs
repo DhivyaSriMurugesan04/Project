@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-//#nullable disable
+#nullable disable
 
 namespace DAL_Reference.Models
 {
@@ -9,8 +9,9 @@ namespace DAL_Reference.Models
     {
         public TblDiscount()
         {
-            TblPassenger = new HashSet<TblPassenger>();
+            TblPassengers = new HashSet<TblPassenger>();
         }
+
         public long DiscountId { get; set; }
         public string DiscountCode { get; set; }
         public decimal Amount { get; set; }
@@ -23,6 +24,6 @@ namespace DAL_Reference.Models
         public long ModifiedBy { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        public virtual ICollection<TblPassenger> TblPassenger { get; set; }
+        public virtual ICollection<TblPassenger> TblPassengers { get; set; }
     }
 }

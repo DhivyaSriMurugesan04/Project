@@ -2,7 +2,7 @@
   "Routes": [
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/Login/login/",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/Login/login/",
       "DownstreamScheme": "http",
       "ServiceName": "AdminServices",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/Login/login/",
@@ -10,7 +10,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/Users/UsersAPI/",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/Users/UsersAPI/",
       "DownstreamScheme": "http",
       "ServiceName": "UserServices",
       "UpstreamPathTemplate": "/api/gatway{v:apiVersion}/flight/Users/UsersAPI/",
@@ -18,7 +18,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/Users/UsersAPI/create",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/Users/UsersAPI/create",
       "DownstreamScheme": "http",
       "ServiceName": "UserServices",
       "UpstreamPathTemplate": "/api/gatway{v:apiVersion}/flight/Users/UsersAPI/",
@@ -26,7 +26,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/Users/UsersAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/Users/UsersAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "UserServices",
       "UpstreamPathTemplate": "/api/gatway{v:apiVersion}/flight/Users/UsersAPI/",
@@ -34,7 +34,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/Users/UsersAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/Users/UsersAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "UserServices",
       "UpstreamPathTemplate": "/api/gatway{v:apiVersion}/flight/Users/UsersAPI/",
@@ -42,7 +42,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/all",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/all",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/all",
@@ -50,7 +50,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/byAirlineId/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/byAirlineId/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/byAirlineId/{id}",
@@ -58,7 +58,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/create",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/create",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/create",
@@ -66,7 +66,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/blockorunblock/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/blockorunblock/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/blockorunblock/{id}",
@@ -74,7 +74,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/{id}",
@@ -82,7 +82,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightServices/AirlinesAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightServices/AirlinesAPI/{id}",
@@ -90,7 +90,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/all",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/BookingAPI/all",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/all",
@@ -98,7 +98,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/BookingAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/{id}",
@@ -106,7 +106,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/history/{userid}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/BookingAPI/history/{userid}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/history/{userid}",
@@ -114,7 +114,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/historyall/{userid}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/BookingAPI/historyall/{userid}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/historyall/{userid}",
@@ -122,7 +122,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/history/{PNRID}/{userid}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/BookingAPI/history/{PNRID}/{userid}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/history/{PNRID}/{userid}",
@@ -130,7 +130,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/historybyairline/{airlineId}/{flightId}/{tripDate}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/BookingAPI/historybyairline/{airlineId}/{flightId}/{tripDate}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/historybyairline/{airlineId}/{flightId}/{tripDate}",
@@ -138,7 +138,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/create",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/BookingAPI/create",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/create",
@@ -146,7 +146,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/cancel",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/BookingAPI/cancel",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/cancel",
@@ -154,7 +154,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/BookingAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/{id}",
@@ -162,7 +162,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/BookingAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/BookingAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/BookingAPI/{id}",
@@ -170,7 +170,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/DiscountAPI/all",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/DiscountAPI/all",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/DiscountAPI/all",
@@ -178,7 +178,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/DiscountAPI/bycode/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/DiscountAPI/bycode/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/DiscountAPI/bycode/{id}",
@@ -186,7 +186,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/DiscountAPI/create",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/DiscountAPI/create",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/DiscountAPI/create",
@@ -194,7 +194,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/DiscountAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/DiscountAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/DiscountAPI/{id}",
@@ -202,7 +202,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/DiscountAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/DiscountAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/DiscountAPI/{id}",
@@ -210,7 +210,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightAPI/all",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightAPI/all",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightAPI/all",
@@ -218,7 +218,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightAPI/byAirlineId/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightAPI/byAirlineId/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightAPI/byAirlineId/{id}",
@@ -226,7 +226,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightAPI/create",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightAPI/create",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightAPI/create",
@@ -234,7 +234,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightAPI/{id}",
@@ -242,7 +242,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/FlightAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/FlightAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/FlightAPI/{id}",
@@ -250,7 +250,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/all",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/PassengerAPI/all",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/all",
@@ -258,7 +258,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/PassengerAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/{id}",
@@ -266,7 +266,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/history/{PNRID}/{userId}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/PassengerAPI/history/{PNRID}/{userId}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/history/{PNRID}/{userId}",
@@ -274,7 +274,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/create",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/PassengerAPI/create",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/create",
@@ -282,7 +282,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/PassengerAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/{id}",
@@ -290,23 +290,15 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/PassengerAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/{id}",
       "UpstreamHttpMethod": [ "Delete" ]
-    },
+    },    
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/PassengerAPI/{id}",
-      "DownstreamScheme": "http",
-      "ServiceName": "FlightService",
-      "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/PassengerAPI/{id}",
-      "UpstreamHttpMethod": [ "Delete" ]
-    },
-    {
-      "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/all",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/ScheduleAPI/all",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/all",
@@ -314,7 +306,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/GetScheduleById/{Id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/ScheduleAPI/GetScheduleById/{Id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/GetScheduleById/{Id}",
@@ -322,7 +314,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/availableAirlines",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/ScheduleAPI/availableAirlines",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/availableAirlines",
@@ -330,7 +322,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/searchSchedule/{airlineId}/{flightId}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/ScheduleAPI/searchSchedule/{airlineId}/{flightId}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/searchSchedule/{airlineId}/{flightId}",
@@ -338,7 +330,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/create",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/ScheduleAPI/create",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/create",
@@ -346,7 +338,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/ScheduleAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/{id}",
@@ -354,7 +346,7 @@
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "api/{v:apiVersion}/flight/ScheduleAPI/{id}",
+      "DownstreamPathTemplate": "/api/{v:apiVersion}/flight/ScheduleAPI/{id}",
       "DownstreamScheme": "http",
       "ServiceName": "FlightService",
       "UpstreamPathTemplate": "/api/gatway/{v:apiVersion}/flight/ScheduleAPI/{id}",

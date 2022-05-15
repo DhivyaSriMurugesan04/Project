@@ -158,9 +158,9 @@ namespace FlightServices.Controllers
                 var bookings = _repository.TblBooking.GetAllBookingsByPNRIdAndUserIdAndTripDate(booking.PnrID, booking.UserID, currentDate);
                 if (bookings != null)
                 {
-                    if (bookings.TblPassenger.Count() > 0)
+                    if (bookings.TblPassengers.Count() > 0)
                     {
-                        var passengerDetails = bookings.TblPassenger.Where(p => p.PassengerId == booking.PassengerId).FirstOrDefault();
+                        var passengerDetails = bookings.TblPassengers.Where(p => p.PassengerId == booking.PassengerId).FirstOrDefault();
                         passengerDetails.Status = "Cancelled";
                         //foreach (PassengerDetails item in bookings.PassengerDetails)
                         //{
@@ -199,7 +199,7 @@ namespace FlightServices.Controllers
                 bookingEntity.CreatedOn = DateTime.Now;
                 bookingEntity.ModifiedDate = DateTime.Now;
 
-                foreach (var passenger in bookingEntity.TblPassenger)
+                foreach (var passenger in bookingEntity.TblPassengers)
                 {
                     discounId = passenger.DiscountId;
                     if (passenger.DiscountId == 0)

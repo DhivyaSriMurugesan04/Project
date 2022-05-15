@@ -116,7 +116,7 @@ namespace FlightServices.Controllers
                 }
                 var schduleEntity = _mapper.Map<TblSchedule>(schedule);
 
-                schduleEntity.CreatedBy = schedule.UserID.ToString();
+                schduleEntity.CreatedBy = schedule.UserID;
                 schduleEntity.CreatedDate = DateTime.Now;
                 schduleEntity.ModifiedDate = DateTime.Now;
 

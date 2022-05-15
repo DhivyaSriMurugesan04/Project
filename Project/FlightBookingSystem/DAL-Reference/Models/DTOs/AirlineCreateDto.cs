@@ -17,7 +17,7 @@ namespace FlightBookingAPI.Models.DTOs
         [Required(ErrorMessage = "Contact Number is required")]
         public string ContactNumber { get; set; }
         [Required(ErrorMessage = "Logo is required")]
-        public string Logo { get; set; }
+        public string AirlineLogo { get; set; }
 
         public long UserID { get; set; }
     }

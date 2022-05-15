@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace FlightServices.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [ApiVersion("2.0")]
     [Route("api/{v:apiVersion}/flight/flightServices/[controller]")]
     [ApiController]

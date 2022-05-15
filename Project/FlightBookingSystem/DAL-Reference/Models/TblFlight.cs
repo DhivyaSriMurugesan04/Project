@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-//#nullable disable
+#nullable disable
 
 namespace DAL_Reference.Models
 {

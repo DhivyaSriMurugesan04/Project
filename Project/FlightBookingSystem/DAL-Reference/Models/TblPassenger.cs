@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-//#nullable disable
+#nullable disable
 
 namespace DAL_Reference.Models
 {
@@ -29,7 +29,5 @@ namespace DAL_Reference.Models
         public virtual TblDiscount Discount { get; set; }
         public virtual TblBooking Pnr { get; set; }
         public virtual TblSchedule Schedule { get; set; }
-
-
     }
 }

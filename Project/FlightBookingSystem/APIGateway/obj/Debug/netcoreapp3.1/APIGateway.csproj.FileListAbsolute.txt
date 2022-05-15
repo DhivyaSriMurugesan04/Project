@@ -1,5 +1,6 @@
 D:\Dhivya\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Dhivya\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Dhivya\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\ocelot.json
 D:\Dhivya\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\APIGateway.exe
 D:\Dhivya\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\APIGateway.deps.json
 D:\Dhivya\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\APIGateway.runtimeconfig.json
@@ -364,5 +365,4 @@ D:\Dhivya\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.cspr
 D:\Dhivya\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.dll
 D:\Dhivya\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.pdb
 D:\Dhivya\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.genruntimeconfig.cache
-D:\Dhivya\FlightBookingSystem\APIGateway\bin\Debug\netcoreapp3.1\ocelot.json
 D:\Dhivya\FlightBookingSystem\APIGateway\obj\Debug\netcoreapp3.1\APIGateway.csproj.AssemblyReference.cache

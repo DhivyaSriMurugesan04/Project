@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-//#nullable disable
+#nullable disable
 
 namespace DAL_Reference.Models
 {
@@ -9,8 +9,9 @@ namespace DAL_Reference.Models
     {
         public TblSchedule()
         {
-            TblSchedules = new HashSet<TblSchedule>();
+            TblPassengers = new HashSet<TblPassenger>();
         }
+
         public long ScheduleId { get; set; }
         public long AirlineId { get; set; }
         public long FlightId { get; set; }
@@ -22,14 +23,13 @@ namespace DAL_Reference.Models
         public decimal BusinessTicketPrice { get; set; }
         public decimal NonBusinessTicketPrice { get; set; }
         public string MealPreferences { get; set; }
-        public string CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public long ModifiedBy { get; set; }
         public DateTime ModifiedDate { get; set; }
 
         public virtual TblAirline Airline { get; set; }
         public virtual TblFlight Flight { get; set; }
-        public virtual ICollection<TblSchedule> TblSchedules { get; set; }
+        public virtual ICollection<TblPassenger> TblPassengers { get; set; }
     }
-
 }
